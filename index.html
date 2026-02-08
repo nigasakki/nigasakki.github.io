@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Noemy Te Amo!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="text-container">
+        <h1>💕 ¡Noemy Te Amo! 💕</h1>
+        <p>Con todo mi corazón</p>
+    </div>
+
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <div class="tulips-container" id="tulipsContainer"></div>
+
+    <script>
+        // Crear tulipanes
+        function createTulip(delay) {
+            const tulipsContainer = document.getElementById('tulipsContainer');
+            const tulip = document.createElement('div');
+            tulip.className = 'tulip';
+            tulip.style.animationDelay = delay + 's';
+            tulip.style.left = Math.random() * 100 + '%';
+            
+            const height = 100 + Math.random() * 300;
+            tulip.style.setProperty('--height', height + 'px');
+            
+            tulip.innerHTML = `
+                <div class="tulip-stem" style="height: ${height}px;"></div>
+                <div class="tulip-leaf"></div>
+                <div class="tulip-flower">
+                    <div class="petal petal1"></div>
+                    <div class="petal petal2"></div>
+                    <div class="petal petal3"></div>
+                </div>
+            `;
+            
+            tulipsContainer.appendChild(tulip);
+            
+            setTimeout(() => {
+                tulip.remove();
+            }, (4000 + delay * 1000));
+        }
+
+        // Crear tulipanes continuamente
+        setInterval(() => {
+            createTulip(0);
+        }, 800);
+
+        // Crear algunos tulipanes iniciales
+        for (let i = 0; i < 8; i++) {
+            createTulip(i * 0.5);
+        }
+
+        // Crear corazones flotantes
+        function createHeart() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'heart' + (Math.random() > 0.5 ? ' heart-variant' : '');
+            
+            const randomLeft = Math.random() * 100;
+            const randomDelay = Math.random() * 0.5;
+            
+            heart.style.left = randomLeft + '%';
+            heart.style.bottom = '-50px';
+            heart.style.animationDelay = randomDelay + 's';
+            
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Crear corazones continuamente
+        setInterval(() => {
+            createHeart();
+        }, 600);
+
+        // Crear algunos corazones iniciales
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                createHeart();
+            }, i * 300);
+        }
+    </script>
+</body>
+</html>

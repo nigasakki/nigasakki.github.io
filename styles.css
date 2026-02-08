@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow: hidden;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="blue"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 12 12, auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.text-container {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    animation: fadeIn 2s ease-in;
+}
+
+.text-container h1 {
+    font-size: 3em;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.text-container p {
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.tulips-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.tulip {
+    position: relative;
+    animation: grow 4s ease-in-out infinite;
+}
+
+@keyframes grow {
+    0% {
+        height: 10px;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        height: 400px;
+        opacity: 0;
+    }
+}
+
+.tulip-flower {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+}
+
+.petal {
+    position: absolute;
+    width: 15px;
+    height: 40px;
+    border-radius: 50% 50% 50% 0;
+    bottom: 20px;
+}
+
+.petal1 {
+    background: #FF1493;
+    transform: rotate(-30deg) translateY(-10px);
+    left: 5px;
+}
+
+.petal2 {
+    background: #FF69B4;
+    transform: rotate(0deg);
+    left: 50%;
+    margin-left: -7.5px;
+}
+
+.petal3 {
+    background: #FF1493;
+    transform: rotate(30deg) translateY(-10px);
+    right: 5px;
+}
+
+.tulip-stem {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    background: #228B22;
+    border-radius: 2px;
+}
+
+.tulip-leaf {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 60px;
+    background: #32CD32;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.hearts-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2em;
+    color: #FF69B4;
+    animation: floatUp 4s ease-in-out forwards;
+    opacity: 0.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-800px) translateX(100px);
+    }
+}
+
+.heart-variant {
+    animation: floatUpVariant 5s ease-in-out forwards;
+}
+
+@keyframes floatUpVariant {
+    0% {
+        opacity: 1;
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-400px) translateX(-80px) rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-900px) translateX(50px) rotate(360deg);
+    }
+}
